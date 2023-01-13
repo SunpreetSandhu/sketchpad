@@ -1,5 +1,6 @@
 let color = "black";
 let click = true;
+document.querySelector(".error").style.display = "none";
 
 function populateBoard(size) {
   let board = document.querySelector(".board");
@@ -22,9 +23,10 @@ populateBoard(16);
 
 function changeSize(input) {
   if (input >= 2 && input <= 100) {
+    document.querySelector(".error").style.display = "none";
     populateBoard(input);
   } else {
-    console.log("Input Error");
+    document.querySelector(".error").style.display = "flex";
   }
 }
 
