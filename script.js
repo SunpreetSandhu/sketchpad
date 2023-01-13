@@ -1,3 +1,5 @@
+let color = "black";
+
 function populateBoard(size) {
   let board = document.querySelector(".board");
   board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
@@ -9,7 +11,8 @@ function populateBoard(size) {
   let amount = size * size;
   for (let i = 0; i < amount; i++) {
     let square = document.createElement("div");
-    square.style.backgroundColor = "blue";
+    square.addEventListener("mouseover", colorSquare);
+    square.style.backgroundColor = "white";
     board.insertAdjacentElement("beforeend", square);
   }
 }
@@ -22,4 +25,12 @@ function changeSize(input) {
   } else {
     console.log("Input Error");
   }
+}
+
+function colorSquare() {
+  this.style.backgroundColor = color;
+}
+
+function changeColor(choice) {
+  color = choice;
 }
